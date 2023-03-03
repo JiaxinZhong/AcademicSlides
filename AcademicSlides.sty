@@ -1,0 +1,53 @@
+\ProvidesPackage{scislide}
+% Last modified on 12-12-2018
+
+% chinese support
+% \usepackage[UTF8,noindent]{ctex}
+% \CTEXoptions[today=old]
+
+% \usepackage{caption}
+% \captionsetup[figure]{labelfont={bf},name={Fig},labelsep=period}
+% \usepackage{subcaption}
+
+% \C is conflict with beamer
+% \renewcommand{\C}{\ensuremath{\mathbb{C}}}
+
+
+% Non italic text in theorems, definitions, examples
+% \usepackage{amsthm}
+\theoremstyle{definition}
+
+% \theoremstyle{remark}
+% new theorem env
+% \newtheorem{thm}{Theorem}
+% \newtheorem{defi}{Definition}
+% \newtheorem{iden}{Identity}
+
+% ============Page setup============
+\hypersetup{
+	pdfpagemode		=	FullScreen
+}
+% ============end of Page setup============
+
+% enable subfigure environment
+\usepackage{subcaption}
+
+\usepackage{physics}
+
+%% Math symbols
+% see https://tex.stackexchange.com/questions/318602/five-iterated-integrals
+\makeatletter
+\ams@newcommand{\iiiiint}{\DOTSI\protect\MultiIntegral{5}}
+\renewcommand{\MultiIntegral}[1]{%
+  \edef\ints@c{\noexpand\intop
+    \ifnum#1=\z@\noexpand\intdots@\else\noexpand\intkern@\fi
+    \ifnum#1>\tw@\noexpand\intop\noexpand\intkern@\fi
+    \ifnum#1>\thr@@\noexpand\intop\noexpand\intkern@\fi
+    \ifnum#1>4 \noexpand\intop\noexpand\intkern@\fi % <---- added
+    \noexpand\intop
+    \noexpand\ilimits@
+  }%
+  \futurelet\@let@token\ints@a
+}
+\makeatother
+
