@@ -1,13 +1,80 @@
-\ProvidesPackage{scislide}
+\ProvidesPackage{AcademicSlides}
 % Last modified on 12-12-2018
+
+%% beamer settings
+
+% \usetheme{Warsaw}
+\usetheme{Madrid}
+
+% \usefonttheme{serif}
+% \usefonttheme{professionalfonts}
+% \usepackage{arev}
+% \setbeamertemplate{footline}{%
+   % \raisebox{5pt}{\makebox[\paperwidth]{\hfill\makebox[10pt]{\scriptsize\insertframenumber}}}}
+\useoutertheme{default}
+% \useoutertheme{infolines}
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+  \usebeamerfont{author in head/foot}\insertshortauthor\ (\insertshortinstitute)
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+      \usebeamerfont{title in head/foot}{\insertshorttitle}
+  \end{beamercolorbox}%
+  % \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+  % \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+  % \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  % \end{beamercolorbox}}%
+  % \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+  % \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em} Page
+  % \insertframenumber{} \hspace*{2ex} 
+  % \end{beamercolorbox}}%
+  \begin{beamercolorbox}[wd=.3\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+  \usebeamerfont{title in head/foot}\insertshortdate{}\hspace*{1em} Page
+  \insertframenumber{} \hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\setbeamerfont{footnote}{size=\scriptsize}
+
+
+\let\emph\relax % there's no \RedeclareTextFontCommand
+% \DeclareTextFontCommand{\emph}{\bfseries\em}
+% \DeclareTextFontCommand{\emph}{\bfseries}
+\DeclareTextFontCommand{\emph}{\bfseries\sffamily}
+
+\usepackage{media9}
+\usepackage{ragged2e}
+\usepackage{tikz}
+\usepackage{upgreek}
+\usepackage{sidecap}
+\usepackage{booktabs}
+ \usepackage{amssymb}
+\usepackage{makecell}
+\usepackage{siunitx}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{outlines}
+
+\makeatletter
+\def\blfootnote{\gdef\@thefnmark{}\@footnotetext}
+\makeatother
+
+% command \bm
+\usepackage{bm}
 
 % chinese support
 % \usepackage[UTF8,noindent]{ctex}
 % \CTEXoptions[today=old]
 
-% \usepackage{caption}
-% \captionsetup[figure]{labelfont={bf},name={Fig},labelsep=period}
-% \usepackage{subcaption}
+\usepackage{upgreek}
+
+\usepackage{caption}
+\captionsetup[figure]{labelfont={bf},name={Fig},labelsep=period}
+\usepackage{subcaption}
 
 % \C is conflict with beamer
 % \renewcommand{\C}{\ensuremath{\mathbb{C}}}
@@ -23,9 +90,12 @@
 % \newtheorem{defi}{Definition}
 % \newtheorem{iden}{Identity}
 
+
+
 % ============Page setup============
 \hypersetup{
-	pdfpagemode		=	FullScreen
+  pdfpagemode   = FullScreen
+  % colorlinks=false
 }
 % ============end of Page setup============
 
@@ -52,9 +122,23 @@
 \makeatother
 
 %% use biblatex to manage references
-\usepackage[
-  doi = false,
-  isbn = false,
-  url = false,
-  eprint = false
-  ]{biblatex}
+% \usepackage[
+%   doi = false,
+%   isbn = false,
+%   url = false,
+%   eprint = false,
+%   maxcitenames = 99,
+%   giveninits = true,
+%   date = year]{biblatex}
+
+
+\sidecaptionvpos{figure}{c}
+\usepackage{mathtools}
+\setbeamertemplate{caption}[numbered]
+\usepackage{physics}
+
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
+
+\usepackage{caption}
+\captionsetup{font = scriptsize, labelfont = scriptsize}
